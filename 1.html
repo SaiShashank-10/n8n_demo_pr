@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Sign Up / Login</title>
+  <style>
+    * { box-sizing: border-box; }
+    body {
+      margin: 0;
+      font-family: Arial, sans-serif;
+      background: linear-gradient(135deg, #6a5acd, #00bcd4);
+      min-height: 100vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 20px;
+    }
+    .card {
+      background: white;
+      width: 100%;
+      max-width: 420px;
+      border-radius: 12px;
+      box-shadow: 0 10px 25px rgba(0,0,0,0.2);
+      overflow: hidden;
+    }
+    .tabs {
+      display: flex;
+      background: #f3f3f3;
+    }
+    .tab {
+      flex: 1;
+      text-align: center;
+      padding: 14px;
+      cursor: pointer;
+      font-weight: bold;
+      color: #555;
+      border: none;
+      background: transparent;
+    }
+    .tab.active {
+      background: white;
+      color: #6a5acd;
+    }
+    .form-box {
+      padding: 24px;
+    }
+    .form {
+      display: none;
+    }
+    .form.active {
+      display: block;
+    }
+    label {
+      display: block;
+      margin-bottom: 6px;
+      font-size: 14px;
+      color: #333;
+    }
+    input {
+      width: 100%;
+      padding: 12px;
+      margin-bottom: 14px;
+      border: 1px solid #ccc;
+      border-radius: 8px;
+      font-size: 14px;
+    }
+    button {
+      width: 100%;
+      padding: 12px;
+      background: #6a5acd;
+      color: white;
+      border: none;
+      border-radius: 8px;
+      cursor: pointer;
+      font-size: 15px;
+      font-weight: bold;
+    }
+    button:hover { background: #5848b6; }
+    .hint {
+      text-align: center;
+      margin-top: 10px;
+      font-size: 13px;
+      color: #666;
+    }
+  </style>
+</head>
+<body>
+  <div class="card">
+    <div class="tabs">
+      <button class="tab active" onclick="showForm('signup')">Sign Up</button>
+      <button class="tab" onclick="showForm('login')">Login</button>
+    </div>
+
+    <div class="form-box">
+      <form class="form active" id="signupForm">
+        <label for="signupName">Full Name</label>
+        <input id="signupName" type="text" placeholder="Enter your name" required />
+
+        <label for="signupEmail">Email</label>
+        <input id="signupEmail" type="email" placeholder="Enter your email" required />
+
+        <label for="signupPassword">Password</label>
+        <input id="signupPassword" type="password" placeholder="Create a password" required />
+
+        <button type="submit">Create Account</button>
+        <div class="hint">Already have an account? Switch to Login.</div>
+      </form>
+
+      <form class="form" id="loginForm">
+        <label for="loginEmail">Email</label>
+        <input id="loginEmail" type="email" placeholder="Enter your email" required />
+
+        <label for="loginPassword">Password</label>
+        <input id="loginPassword" type="password" placeholder="Enter your password" required />
+
+        <button type="submit">Login</button>
+        <div class="hint">New here? Switch to Sign Up.</div>
+      </form>
+    </div>
+  </div>
+
+  <script>
+    function showForm(type) {
+      document.querySelectorAll('.tab').forEach(tab => tab.classList.remove('active'));
+      document.querySelectorAll('.form').forEach(form => form.classList.remove('active'));
+
+      if (type === 'signup') {
+        document.querySelector('.tab:nth-child(1)').classList.add('active');
+        document.getElementById('signupForm').classList.add('active');
+      } else {
+        document.querySelector('.tab:nth-child(2)').classList.add('active');
+        document.getElementById('loginForm').classList.add('active');
+      }
+    }
+  </script>
+</body>
+</html>
