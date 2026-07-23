@@ -23,6 +23,5 @@ async def read_root(request: Request):
     context = {"message": "Hello, World!"}
     return templates.TemplateResponse("index.html", {"request": request, **context})
 
-print("Hello World");
-SELECT * FROM EMP;
-Error Messege
+if __name__ == "__main__":
+    print("Hello World")
