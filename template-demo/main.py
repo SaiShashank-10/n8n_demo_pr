@@ -11,8 +11,17 @@ app.mount("/static", StaticFiles(directory="static"), name="static")
 # Initialize Jinja2 templates
 templates = Jinja2Templates(directory="templates")
 
-@app.get("/", response_class=HTMLResponse)
+@app.get("/messesges", response_class=HTMLResponse)
 async def read_root(request: Request):
     # Context data passed to the template
     context = {"message": "Hello, World!"}
-    return templates.TemplateResponse("index.html", {"request": request, **context})   
+    return templates.TemplateResponse("index.html", {"request": request, **context})
+
+@app.get("/messeges1/v1/", response_class=HTMLResponse)
+async def read_root(request: Request):
+    # Context data passed to the template
+    context = {"message": "Hello, World!"}
+    return templates.TemplateResponse("index.html", {"request": request, **context})
+
+if __name__ == "__main__":
+    print("Hello World")
