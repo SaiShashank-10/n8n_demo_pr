@@ -25,3 +25,4 @@ async def read_root(request: Request):
 
 print("Hello World");
 SELECT * FROM EMP;
+Error Messege
